@@ -1,0 +1,1 @@
+web: gunicorn chemDB.wsgi --log-file -
