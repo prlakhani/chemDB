@@ -2,7 +2,7 @@ ChemSpiPy==1.0.4
 dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.8.2
-django-batchimport===0.1.3-cbv
+git+git://github.com/pstch/django-batchimport.git
 django-postgrespool==0.3.0
 django-toolbelt==0.0.1
 gunicorn==19.3.0
