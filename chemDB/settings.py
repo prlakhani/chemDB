@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 import os
 import dj_database_url
+from urlparse import urlparse
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
@@ -37,6 +38,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'haystack',
+    'cmpds',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +58,7 @@ ROOT_URLCONF = 'chemDB.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates','chemDB'),os.path.join],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,3 +120,25 @@ STATICFILES_DIRS = (
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+# This is only useful for templates outside of any apps, I think?
+# TEMPLATE_DIRS = [os.path.join(BASE_DIR,'templates','chemDB'),os.path.join]
+
+# login
+LOGIN_URL = 'accounts/login/'
+
+# search
+es = urlparse(os.environ.get('SEARCHBOX_URL') or 'http://127.0.0.1:9200/')
+
+port = es.port or 80
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': es.scheme + '://' + es.hostname + ':' + str(port),
+        'INDEX_NAME': 'documents',
+    },
+}
+
+if es.username:
+    HAYSTACK_CONNECTIONS['default']['KWARGS'] = {"http_auth": es.username + ':' + es.password}

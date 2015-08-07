@@ -3,8 +3,10 @@ dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.8.2
 git+git://github.com/pstch/django-batchimport.git
+django-haystack==2.4.0
 django-postgrespool==0.3.0
 django-toolbelt==0.0.1
+elasticsearch==1.6.0
 gunicorn==19.3.0
 numpy==1.9.2
 Pillow==2.8.2
@@ -13,6 +15,7 @@ requests==2.7.0
 six==1.9.0
 SQLAlchemy==1.0.6
 static3==0.6.1
+urllib3==1.11
 wheel==0.24.0
 whitenoise==2.0
 xlrd==0.9.3

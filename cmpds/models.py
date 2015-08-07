@@ -35,9 +35,9 @@ class Compound(models.Model):
 	note = models.TextField(blank=True,null=True)
 	rothID = models.PositiveIntegerField(blank=True,null=True)
 	kokelLabID = models.CharField(max_length=10)	# figure out what this means for us. do we really need the forced pk?
-	dateOrdered = models.DateField(default=timezone.now())
+	dateOrdered = models.DateField(default=timezone.now)
 	LIBRARIES = (
-		('UC','UC')
+		('UC','UC'),
 		)
 	libraryCode = models.CharField(max_length=2,choices=LIBRARIES)
 	# boxWellCode is calculated from box+robotized(row,Column)
