@@ -6,6 +6,7 @@ class Compound(models.Model):
 	chemName = models.CharField(max_length=100)
 	SMILES = models.CharField(max_length=500)
 	InCHI = models.CharField(max_length=500)
+	CSID = models.CharField(max_length=10,blank=True,null=True)
 	box = models.PositiveSmallIntegerField()
 	row = models.CharField(max_length=1)	# validate as A-H
 	column = models.PositiveSmallIntegerField()	# validate to max value of 8
@@ -34,10 +35,10 @@ class Compound(models.Model):
 	mechanismTargetNotes = models.TextField(blank=True,null=True)
 	note = models.TextField(blank=True,null=True)
 	rothID = models.PositiveIntegerField(blank=True,null=True)
-	kokelLabID = models.CharField(max_length=10)	# figure out what this means for us. do we really need the forced pk?
+	# kokelLabID = models.CharField(max_length=10)	# figure out what this means for us. do we really need the forced pk?
 	dateOrdered = models.DateField(default=timezone.now)
 	LIBRARIES = (
 		('UC','UC'),
 		)
-	libraryCode = models.CharField(max_length=2,choices=LIBRARIES)
+	libraryCode = models.CharField(max_length=2,choices=LIBRARIES,default='UC')
 	# boxWellCode is calculated from box+robotized(row,Column)

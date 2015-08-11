@@ -20,6 +20,7 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'accounts/login/', 'django.contrib.auth.views.login'),
     url(r'^search/', include('haystack.urls')),
+    url(r'^cmpds/', include('cmpds.urls', namespace="cmpds")),
 )
 
 urlpatterns += patterns('', (

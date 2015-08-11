@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Add Compound{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+	<h2>Add a compound</h2>
+	<hr>
+		<form method="POST">{% csrf_token %}
+    		{{ form.as_p}}
+    		<button type="submit">Save</button>
+		</form>
+	</div>
+	{{block.super}}
+</div>
+{% endblock %}

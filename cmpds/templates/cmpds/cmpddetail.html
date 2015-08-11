@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Compound Detail - {{ cmpd }}{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<p>
+	<h1> Compound Detail: <small>{{ cmpd }}</small></h1>
+	</p>
+	<a class="btn btn-primary btn-md" href="{{ cmpd.pk }}/update" role="button">&laquo; Update &raquo;</a>
+	<a class="btn btn-danger btn-md" href="{{ cmpd.pk }}/delete" role="button">&laquo; Delete &raquo;</a>
+	
+	<hr>
+	<p>
+	<b>Date aliquoted: </b>{{ cmpd.date }}
+	</p>
+	<div class="row">
+		<div class="col-md-2">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Target gene</h3>
+			</div>
+			<div class="panel-body">
+				{{ cmpd.geneTarget }}
+			</div>
+		</div>
+		</div>
+		<div class="col-md-2">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Promoter</h3>
+			</div>
+			<div class="panel-body">
+				{{ cmpd.promoter }}
+			</div>
+		</div>
+		</div>
+		<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Target sequence</h3>
+			</div>
+			<div class="panel-body">
+				{{ cmpd.targetSeq }}
+			</div>
+		</div>
+		</div>
+		<div class="col-md-4">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Notes</h3>
+			</div>
+			<div class="panel-body">
+				{{ cmpd.note }}
+			</div>
+		</div>
+		</div>	
+	</div>
+	<p align="right">
+	<b>Concentration: </b>{{cmpd.concentration}} ng/uL
+	</p>
+	<hr>
+	<div class="row">
+	<div class="col-md-12">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Primers</h3>
+		</div>
+		<ul class="list-group">
+			<li class="list-group-item"><b>Forward primer: </b>{{ cmpd.primerF.sequence }}</li>
+			<li class="list-group-item"><b>Reverse primer: </b>{{ cmpd.primerR.sequence }}</li>
+		</ul>
+	</div>
+	</div>
+	</div>
+	<p align="right">
+	<b>Product size: </b>{{cmpd.prodSize}} bp
+	</p>
+	<hr>
+	<div class="row">
+	<div class="col-md-12">
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Microinjection experiments using this cmpd</h3>
+		</div>
+		<ul class="list-group">
+			{% for inx in inxSet %}
+			<li class="list-group-item"><a href="/data/uInx/{{inx.pk}}">{{ inx }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	</div>
+	</div>
+	<hr>
+	<a class="btn btn-primary btn-md" href="{{ cmpd.pk }}/update" role="button">&laquo; Update &raquo;</a>
+	<a class="btn btn-danger btn-md" href="{{ cmpd.pk }}/delete" role="button">&laquo; Delete &raquo;</a>
+	{{block.super}}
+</div>
+{% endblock content %}

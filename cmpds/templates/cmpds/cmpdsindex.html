@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}All Compounds{% endblock title %}
+
+{% block content %}
+<div class="container">
+	<div class="row">
+	<h1>All compounds</h1>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Compound Name</th>
+					<th>BRC Location</th>
+					<th>RothID</th>
+					<th>Structure</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for cmpd in compounds %}
+					<tr>
+						<td><a href={% url 'cmpd-detail' cmpd.pk %}>{{ cmpd.chemName }}</a></td>
+						<td>{{ cmpd.box }}{{ cmpd.row }}{{ cmpd.column }}</td>
+						<td>{{ cmpd.rothID }}</td>
+						<td><img src="http://www.chemspider.com/ImagesHandler.ashx?id={{ cmpd.CSID }}&w=250&h=250"></td>
+					</tr>
+					
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="row">
+		<a class="btn btn-primary btn-lg" href="/cmpds/create" role="button">Add a compound &raquo;</a>
+	</div>
+	{{block.super}}
+</div>
+{% endblock content %}
