@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'haystack',
     'cmpds',
+    'batchimport'
 )
 
 MIDDLEWARE_CLASSES = (
