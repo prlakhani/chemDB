@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)$',views.cmpdDetail, name='cmpd-detail'),
     url(r'^(?P<pk>\d+)/update$',login_required(views.cmpdUpdateView.as_view()), name='cmpd-update'),
     url(r'^(?P<pk>\d+)/delete$',login_required(views.cmpdDeleteView.as_view()), name='cmpd-delete'),
-    url(r'^batchimport/', include('batchimport.urls', namespace="batchimport")),
+    # url(r'^batchimport/', include('batchimport.urls', namespace="batchimport")),
     url(r'^cmpdcsv/', views.cmpdCSV, name='CSV'),
 )
 
