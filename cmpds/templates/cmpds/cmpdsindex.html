@@ -18,10 +18,13 @@
 			<tbody>
 				{% for cmpd in compounds %}
 					<tr>
-						<td><a href={% url 'cmpd-detail' cmpd.pk %}>{{ cmpd.chemName }}</a></td>
+						<td><a href={% url 'cmpds:cmpd-detail' pk=cmpd.pk %}>{{ cmpd.chemName }}</a></td>
 						<td>{{ cmpd.box }}{{ cmpd.row }}{{ cmpd.column }}</td>
 						<td>{{ cmpd.rothID }}</td>
-						<td><img src="http://www.chemspider.com/ImagesHandler.ashx?id={{ cmpd.CSID }}&w=250&h=250"></td>
+						<td>{% if cmpd.CSID %}
+								<img src="http://www.chemspider.com/ImagesHandler.ashx?id={{ cmpd.CSID }}&w=250&h=250">
+							{% endif %}
+						</td>
 					</tr>
 					
 				{% endfor %}

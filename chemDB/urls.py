@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     url(r'^search/', include('haystack.urls')),
     url(r'^cmpds/', include('cmpds.urls', namespace="cmpds")),
     url(r'^batchimport/', include('batchimport.urls')),
+    url(r'^excel/', include('excel.urls')),
 )
 
 urlpatterns += patterns('', (

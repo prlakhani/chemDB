@@ -1,0 +1,16 @@
+<html>
+<body>
+1. Import Object Test (Compound):<br/>
+<form enctype="multipart/form-data" action="/excel/import_object/" method="POST">{% csrf_token %}
+<input type='file' name='upload_file' />
+<input type='hidden' name='app' value='cmpds'/>
+<input type='hidden' name='model' value='Compound'/>
+<input type="submit" value="Submit" />
+</form>
+<hr/><br/>
+<hr/><br/>
+7. Export Object Test (Compound):<br/>
+   Click <a href="/excel/export/cmpds/Compound/">here</a>
+<hr/><br/>
+</body>
+</html>

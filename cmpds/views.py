@@ -76,7 +76,7 @@ class cmpdDeleteView(DeleteView):
 @login_required
 def cmpdDetail(request, pk):
     t = loader.get_template('cmpds/cmpddetail.html')
-    thiscmpd = cmpd.objects.get(pk=pk)
+    thiscmpd = Compound.objects.get(pk=pk)
     # chemspider url
     C = Context({
         'cmpd': thiscmpd,
@@ -105,7 +105,7 @@ def cmpdCSV(request):
             cmpd.column, cmpd.vendor, cmpd.vendorCatNo, cmpd.solvent,
             cmpd.solventNote, cmpd.molecularWeight, cmpd.concmM, cmpd.reasonOrdered,
             cmpd.personOrdered, cmpd.powderLocation, cmpd.mechanismTargetNotes,
-            cmpd.note, cmpd.dateOrdered.strftime('%Y-%m-%d'), cmpd.libraryCode
+            cmpd.note, cmpd.dateOrdered, cmpd.libraryCode
         ])
 
     return response

@@ -40,7 +40,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'haystack',
     'cmpds',
-    'batchimport'
+    'batchimport',
+    'excel',
 )
 
 MIDDLEWARE_CLASSES = (
