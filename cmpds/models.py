@@ -73,7 +73,7 @@ class Compound(models.Model):
     powderLocation = models.CharField(max_length=50,blank=True,null=True)
     mechanismTargetNotes = models.TextField(blank=True,null=True)
     note = models.TextField(blank=True,null=True)
-    rothID = models.CharField(max_length=6,blank=True,null=True)
+    rothID = models.CharField(max_length=6,blank=True,null=True)    # Char not Int to use batchimport, which doesn't like blank/null fields
     # kokelLabID = models.CharField(max_length=10)  # figure out what this means for us. do we really need the forced pk?
     dateOrdered = models.CharField(default=timezone.now().strftime('%Y-%m-%d'),max_length=10)
     LIBRARIES = (

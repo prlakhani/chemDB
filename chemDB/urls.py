@@ -21,7 +21,7 @@ urlpatterns = patterns('',
     url(r'accounts/login/', 'django.contrib.auth.views.login'),
     url(r'^search/', include('haystack.urls')),
     url(r'^cmpds/', include('cmpds.urls', namespace="cmpds")),
-    url(r'^batchimport/', include('batchimport.urls')),
+    # url(r'^batchimport/', include('batchimport.urls')),
     url(r'^excel/', include('excel.urls')),
 )
 
