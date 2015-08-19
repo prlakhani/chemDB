@@ -1,3 +1,11 @@
+# My notes
+
+This is a simple chemical compound inventory with fields that I have found useful in lab. It takes structure images from ChemSpider via simple URL, though I intend to update it to use the ChemSpiPy package to also allow more interesting searches (related molecules, etc.). It is currently built for easy deployment to Heroku.
+
+Key technologies I'm learning using this project include search via ElasticSearch engine (searchbox addon in Heroku) and batch import/export via an excel file, through code adapted from [this Google Code project](https://code.google.com/p/django-batchimport/). The batchimport functionality is fairly limited for now, in that it has difficulty with blank/null fields, and I'm still working on understanding how it imports and exports relation fields. It is sufficient for a flat table database, however.
+
+CAREFUL WHEN DEPLOYING: DEBUG IS SET TO TRUE!
+
 # Heroku Django Starter Template
 
 An utterly fantastic project starter template for Django 1.8.

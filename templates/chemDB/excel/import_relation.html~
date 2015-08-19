@@ -1,11 +1,0 @@
-<html>
-<head>
-</head>
-<body>IMPORT<br/>
-relationships_added: {{ relationships_added }}<br/>
-relationships_not_changed: {{ relationships_not_changed }}<br/>
-relationships_not_changed_error: {{ relationships_not_changed_error }}<br/>
-clean: {{ clean }}<br/>
-<a href='/excel/start/'>Start Page</a>
-</body>
-</html>
