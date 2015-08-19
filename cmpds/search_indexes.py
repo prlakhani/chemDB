@@ -2,7 +2,7 @@ from haystack import indexes
 from cmpds.models import Compound
 
 class CompoundIndex(indexes.SearchIndex, indexes.Indexable):
-	text = indexes.CharField(document=True,use_template=True)
+	text = indexes.EdgeNgramField(document=True,use_template=True)
 
 	def get_model(self):
 		return Compound
